@@ -94,6 +94,7 @@ export class DashNavTimeControls extends Component<Props> {
           onChange={this.onChangeTimePicker}
           timeZone={timeZone}
           fiscalYearStartMonth={fiscalYearStartMonth}
+          quickOptions={dashboard.timeOptions}
           onMoveBackward={this.onMoveBack}
           onMoveForward={this.onMoveForward}
           onZoom={this.onZoom}
