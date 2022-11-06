@@ -278,8 +278,13 @@ type Model struct {
 		// Selectable intervals for auto-refresh.
 		RefreshIntervals []string `json:"refresh_intervals"`
 
-		// TODO docs
-		TimeOptions []string `json:"time_options"`
+		// Time ranges to display as quick options, e.g. last 6 hours, last 7 days, etc
+		QuickOptions *struct {
+			From    string `json:"from"`
+			To      string `json:"to"`
+			Display string `json:"display"`
+		} `json:"quickOptions,omitempty"`
+
 	} `json:"timepicker,omitempty"`
 
 	// Timezone of dashboard,

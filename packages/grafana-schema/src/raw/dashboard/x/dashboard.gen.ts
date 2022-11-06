@@ -643,9 +643,11 @@ export interface Dashboard {
      */
     refresh_intervals: Array<string>;
     /**
-     * TODO docs
+     * Time ranges to display as quick options.
      */
-    time_options: Array<string>;
+    quickOptions?: [
+      { from: string, to: string, display: string }
+    ];
   };
   /**
    * Timezone of dashboard,

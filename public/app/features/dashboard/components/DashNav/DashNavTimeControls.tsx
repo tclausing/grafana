@@ -79,7 +79,7 @@ export class DashNavTimeControls extends Component<Props> {
 
   render() {
     const { dashboard, isOnCanvas } = this.props;
-    const { refresh_intervals } = dashboard.timepicker;
+    const { refresh_intervals, quickOptions } = dashboard.timepicker;
     const intervals = getTimeSrv().getValidIntervals(refresh_intervals || defaultIntervals);
 
     const timePickerValue = getTimeSrv().timeRange();
@@ -94,7 +94,7 @@ export class DashNavTimeControls extends Component<Props> {
           onChange={this.onChangeTimePicker}
           timeZone={timeZone}
           fiscalYearStartMonth={fiscalYearStartMonth}
-          quickOptions={dashboard.timeOptions}
+          quickOptions={quickOptions}
           onMoveBackward={this.onMoveBack}
           onMoveForward={this.onMoveForward}
           onZoom={this.onZoom}

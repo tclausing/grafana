@@ -82,7 +82,7 @@ export class DashboardModel implements TimeModel {
   time: any;
   liveNow: boolean;
   private originalTime: any;
-  timepicker: any;
+  timepicker: any; // TODO
   templating: { list: any[] };
   private originalTemplating: any;
   annotations: { list: AnnotationQuery[] };
@@ -97,7 +97,6 @@ export class DashboardModel implements TimeModel {
   panelInEdit?: PanelModel;
   panelInView?: PanelModel;
   fiscalYearStartMonth?: number;
-  timeOptions?: TimeOption[];
   private panelsAffectedByVariableChange: number[] | null;
   private appEventsSubscription: Subscription;
   private lastRefresh: number;
@@ -146,7 +145,7 @@ export class DashboardModel implements TimeModel {
     this.editable = data.editable !== false;
     this.graphTooltip = data.graphTooltip || 0;
     this.time = data.time ?? { from: 'now-6h', to: 'now' };
-    this.timepicker = data.timepicker ?? {};
+    this.timepicker = data.timepicker ?? {}; // TODO
     this.liveNow = Boolean(data.liveNow);
     this.templating = this.ensureListExist(data.templating);
     this.annotations = this.ensureListExist(data.annotations);
@@ -154,7 +153,6 @@ export class DashboardModel implements TimeModel {
     this.snapshot = data.snapshot;
     this.schemaVersion = data.schemaVersion ?? 0;
     this.fiscalYearStartMonth = data.fiscalYearStartMonth ?? 0;
-    this.timeOptions = data.timeOptions;
     this.version = data.version ?? 0;
     this.links = data.links ?? [];
     this.gnetId = data.gnetId || null;
