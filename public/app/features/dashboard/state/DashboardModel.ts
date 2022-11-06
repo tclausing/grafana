@@ -12,6 +12,7 @@ import {
   EventBusExtended,
   EventBusSrv,
   PanelModel as IPanelModel,
+  TimeOption,
   TimeRange,
   TimeZone,
   UrlQueryValue,
@@ -96,6 +97,7 @@ export class DashboardModel implements TimeModel {
   panelInEdit?: PanelModel;
   panelInView?: PanelModel;
   fiscalYearStartMonth?: number;
+  timeOptions?: TimeOption[];
   private panelsAffectedByVariableChange: number[] | null;
   private appEventsSubscription: Subscription;
   private lastRefresh: number;
@@ -152,6 +154,7 @@ export class DashboardModel implements TimeModel {
     this.snapshot = data.snapshot;
     this.schemaVersion = data.schemaVersion ?? 0;
     this.fiscalYearStartMonth = data.fiscalYearStartMonth ?? 0;
+    this.timeOptions = data.timeOptions;
     this.version = data.version ?? 0;
     this.links = data.links ?? [];
     this.gnetId = data.gnetId || null;
