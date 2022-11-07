@@ -82,7 +82,12 @@ export class DashboardModel implements TimeModel {
   time: any;
   liveNow: boolean;
   private originalTime: any;
-  timepicker: any; // TODO
+  timepicker: {
+    refresh_intervals: string[],
+    nowDelay: string,
+    hidden: boolean,
+    quickOptions?: TimeOption[],
+  };
   templating: { list: any[] };
   private originalTemplating: any;
   annotations: { list: AnnotationQuery[] };
@@ -145,7 +150,7 @@ export class DashboardModel implements TimeModel {
     this.editable = data.editable !== false;
     this.graphTooltip = data.graphTooltip || 0;
     this.time = data.time ?? { from: 'now-6h', to: 'now' };
-    this.timepicker = data.timepicker ?? {}; // TODO
+    this.timepicker = data.timepicker ?? {};
     this.liveNow = Boolean(data.liveNow);
     this.templating = this.ensureListExist(data.templating);
     this.annotations = this.ensureListExist(data.annotations);
